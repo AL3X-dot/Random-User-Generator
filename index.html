@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+    <div class="container center">
+        <div id="app">
+            <div class="row center" v-for="user in users">
+                <div class="col m12 l12">
+                    <div class="card">
+                        <div class="card-img center" :class="getClass()">
+                            <img :src="user.picture.large" alt="" class="circle responsive-img" />
+                            <p class="card-title center">
+                                {{user.name.first+" "+user.name.last }}
+                            </p>
+                        </div>
+                        <div class="card-content">
+                            <p>
+                                Location : {{user.location.city+', '+user.location.state}}
+                            </p>
+                            <p>Contact : {{user.cell}}</p>
+                            <p>Email : <a href="#">{{user.email}}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button v-on:click="getUser" class="btn btn-flat grey lighten-2">
+          GetUser
+        </button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
