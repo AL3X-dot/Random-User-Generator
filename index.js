@@ -23,8 +23,9 @@ var app = new Vue({
                     return this.female
                 }
             }
-        }
-
-
+        },
+    },
+    mounted(){
+        this.getUser()
     }
 })
